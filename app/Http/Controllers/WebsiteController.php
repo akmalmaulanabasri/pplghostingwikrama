@@ -57,11 +57,11 @@ class WebsiteController extends Controller
             $user->update([
                 'website_limit' => $user->website_limit - 1
             ]);
-            return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
             CyberPanelController::fetchWebsite();
+            return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
         } else {
-            return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
             \Log::info($p);
+            return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
         }
 
         return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
