@@ -28,12 +28,17 @@ class WebsiteController extends Controller
 
     function store(Request $request)
     {
-        $request->domain = $request->domain.".pplgwikrama.my.id";
         $website = $request->validate([
             'domain' => 'required|unique:websites,domain',
             'package' => 'required',
             'php' => 'required'
         ]);
+        $request->domain = $request->domain . ".pplgwikrama.my.id";
+        $check = Website::where('domain', $request->domain)->get()->first();
+        if ($check) {
+            return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
+            \Log::info("Website sudah ada ==>" . $check);
+        }
 
         $p = CyberPanelController::createWebsite($request->package, $request->domain, $request->php, Auth::user()->email, Auth::user()->username);
         // laravel log
