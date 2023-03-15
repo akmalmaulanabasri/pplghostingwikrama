@@ -214,7 +214,7 @@ class CyberPanelController extends Controller
         {
             "serverUserName": "admin",
             "controller": "submitWebsiteCreation",
-            "domainName": "' . $domain . '.pplgwikrama.my.id",
+            "domainName": "' . $domain . '",
             "package": "' . $package . '",
             "adminEmail": "' . $email . '" ,
             "phpSelection": "PHP ' . $php . '",

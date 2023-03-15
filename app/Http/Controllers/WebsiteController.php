@@ -39,7 +39,7 @@ class WebsiteController extends Controller
         // laravel log
         if ($p['createWebSiteStatus'] == 1) {
             Website::create([
-                'domain' => $request->domain . ".pplgwikrama.my.id",
+                'domain' => $request->domain,
                 'adminEmail' => Auth::user()->email,
                 'ipAddress' => 0,
                 'admin' => Auth::user()->username,
