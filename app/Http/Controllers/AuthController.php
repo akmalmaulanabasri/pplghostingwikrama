@@ -127,7 +127,7 @@ class AuthController extends Controller
         logRegister($user);
         $this->userRepository->login($user);
 
-        $cp = CyberPanelController::register($data['name'], $data['email'], $data['password'], $data['username']);
+        $cp = CyberPanelController::register($data['name'], $data['email'], $request['password'], $data['username']);
         return redirect()->route('dashboard.index')->with('successMessage', __('Berhasil mendaftar dan masuk ke dalam sistem'));
     }
 
