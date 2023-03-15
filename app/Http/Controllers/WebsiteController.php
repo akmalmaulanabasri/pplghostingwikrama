@@ -37,7 +37,7 @@ class WebsiteController extends Controller
         $check = Website::where('domain', $request->domain)->get()->first();
         if ($check) {
             \Log::info("Website sudah ada ==>" . $check);
-            return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
+            return redirect()->route('website.index')->with('errorMessage', 'Domain sudah dipakai, silahkan gunakan domain lainnya');
         }
 
         $p = CyberPanelController::createWebsite($request->package, $request->domain, $request->php, Auth::user()->email, Auth::user()->username);
