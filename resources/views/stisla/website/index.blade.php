@@ -19,37 +19,39 @@
 
   <div class="section-body">
     <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="text-dark">
-              Akses hosting panel
-            </h4>
-          </div>
-          <div class="card-body">
-            <table class="table table-striped border">
-              <tr>
-                <td>Link panel</td>
-                <td>
-                  <a href="https://pplgwikrama.my.id:8090" class="text-decoration-none">https://pplgwikrama.my.id:8090</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Username</td>
-                <td>
-                  <code>{{ Auth::user()->username }}</code>
-                </td>
-              </tr>
-              <tr>
-                <td>Password</td>
-                <td>
-                  <code>Password anda saat mendaftarkan</code>
-                </td>
-              </tr>
-            </table>
+      @if ($websites)
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="text-dark">
+                Akses hosting panel
+              </h4>
+            </div>
+            <div class="card-body">
+              <table class="table table-striped border">
+                <tr>
+                  <td>Link panel</td>
+                  <td>
+                    <a href="https://pplgwikrama.my.id:8090" class="text-decoration-none">https://pplgwikrama.my.id:8090</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Username</td>
+                  <td>
+                    <code>{{ Auth::user()->username }}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>
+                    <code>Password anda saat mendaftarkan</code>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      @endif
       <div class="col-12">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-item-center">
