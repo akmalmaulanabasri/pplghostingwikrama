@@ -112,7 +112,7 @@ class CyberPanelController extends Controller
             "serverUserName": "admin",
             "controller": "submitUserCreation",
             "firstName": "' . $name[0] . '",
-            "lastName": "' . $name[1] . '",
+            "lastName": "' . @$name[1] . '",
             "email": "' . $email . '",
             "userName": "' . $username . '",
             "password": "' . $password . '",
