@@ -36,34 +36,39 @@ class CyberPanelController extends Controller
         );
 
         $response = curl_exec($curl);
+
         curl_close($curl);
         $data = (json_decode($response, true));
-        $replace = [
-            '[',
-            ']',
-            ',{',
-            '{',
-        ];
-        $array = str_replace($replace, '', $data['data']);
-        $array = explode('}', $array);
+        if ($data['status'] != 1) {
+            \Log::info($data);
+        } else {
+            $replace = [
+                '[',
+                ']',
+                ',{',
+                '{',
+            ];
+            $array = str_replace($replace, '', $data['data']);
+            $array = explode('}', $array);
 
-        foreach ($array as $key => $a) {
-            if ($a == null) {
-                unset($array[$key]);
+            foreach ($array as $key => $a) {
+                if ($a == null) {
+                    unset($array[$key]);
+                }
             }
-        }
 
-        $new_arr = [];
-        foreach ($array as $key_utama => $a) {
-            $a = str_replace(['"', ' '], '', $a);
-            $a = explode(',', $a);
-            foreach ($a as $key => $a) {
-                $a = explode(':', $a);
-                $new_arr[$key_utama][$a[0]] = $a[1];
+            $new_arr = [];
+            foreach ($array as $key_utama => $a) {
+                $a = str_replace(['"', ' '], '', $a);
+                $a = explode(',', $a);
+                foreach ($a as $key => $a) {
+                    $a = explode(':', $a);
+                    $new_arr[$key_utama][$a[0]] = $a[1];
+                }
+                // $new_arr[$key_utama]['password'] = md5(md5('helloWorld') . md5(rand(10000, 99999)) . md5('helloWorld'));
             }
-            // $new_arr[$key_utama]['password'] = md5(md5('helloWorld') . md5(rand(10000, 99999)) . md5('helloWorld'));
+            return $new_arr;
         }
-        return $new_arr;
     }
 
     static function fetchWebsite()
@@ -209,11 +214,11 @@ class CyberPanelController extends Controller
         {
             "serverUserName": "admin",
             "controller": "submitWebsiteCreation",
-            "domainName": "'.$domain.'.pplgwikrama.my.id",
-            "package": "'.$package.'",
-            "adminEmail": "'.$email.'" ,
-            "phpSelection": "PHP '.$php.'",
-            "websiteOwner": "'.$username.'",
+            "domainName": "' . $domain . '.pplgwikrama.my.id",
+            "package": "' . $package . '",
+            "adminEmail": "' . $email . '" ,
+            "phpSelection": "PHP ' . $php . '",
+            "websiteOwner": "' . $username . '",
             "ssl": 1,
             "dkimCheck": 1,
             "openBasedir": 1
