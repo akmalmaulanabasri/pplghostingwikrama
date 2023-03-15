@@ -34,6 +34,8 @@ class WebsiteController extends Controller
             'php' => 'required'
         ]);
         $p = CyberPanelController::createWebsite($request->package, $request->domain, $request->php, Auth::user()->email, Auth::user()->username);
+        // laravel log
+        \Log::info($p);
         if ($p['createWebSiteStatus'] == 1) {
             Website::create([
                 'domain' => $request->domain . ".pplgwikrama.my.id",
