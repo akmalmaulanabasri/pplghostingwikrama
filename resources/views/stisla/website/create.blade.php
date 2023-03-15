@@ -43,7 +43,7 @@
                       <td>{{ $p['packageName'] }}</td>
                       <td>{{ $p['allowedDomains'] }}</td>
                       <td>{{ $p['diskSpace'] }}MB</td>
-                      <td>{{ $p['bandwidth'] }}</td>
+                      <td>@if( $p['bandwidth'] == 0) Unlimited @else {{ $p['bandwidth'] }} @endif</td>
                       <td>{{ $p['emailAccounts'] }}</td>
                       <td><input type="radio" name="package" id="package" value="{{ $p['packageName'] }}" required></td>
                     </tr>
