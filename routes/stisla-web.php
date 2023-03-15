@@ -10,19 +10,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'home'])->name('home');
 
 # AUTH
-Route::get('auth/login', [AuthController::class, 'loginForm'])->name('login');
-Route::get('auth/login2', [AuthController::class, 'loginForm'])->name('login2');
-Route::post('auth/login', [AuthController::class, 'login'])->name('login-post');
-Route::get('auth/send-email-verification', [AuthController::class, 'verificationForm'])->name('send-email-verification');
-Route::post('auth/verification', [AuthController::class, 'sendEmailVerification']);
-Route::get('auth/verify/{token}', [AuthController::class, 'verify'])->name('verify');
-Route::get('auth/register', [AuthController::class, 'registerForm'])->name('register');
-Route::post('auth/register', [AuthController::class, 'register']);
-Route::get('auth/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
-Route::get('auth/forgot-password', [AuthController::class, 'forgotPasswordForm'])->name('forgot-password');
-Route::post('auth/forgot-password', [AuthController::class, 'forgotPassword']);
-Route::get('auth/reset-password/{token}', [AuthController::class, 'resetPasswordForm'])->name('reset-password');
-Route::post('auth/reset-password/{token}', [AuthController::class, 'resetPassword']);
+Route::get('auth/login', [AuthController::class, 'loginForm'])->name('login')->middleware('guest');
+Route::get('auth/login2', [AuthController::class, 'loginForm'])->name('login2')->middleware('guest');
+Route::post('auth/login', [AuthController::class, 'login'])->name('login-post')->middleware('guest');
+Route::get('auth/send-email-verification', [AuthController::class, 'verificationForm'])->name('send-email-verification')->middleware('guest');
+Route::post('auth/verification', [AuthController::class, 'sendEmailVerification'])->middleware('guest');
+Route::get('auth/verify/{token}', [AuthController::class, 'verify'])->name('verify')->middleware('guest');
+Route::get('auth/register', [AuthController::class, 'registerForm'])->name('register')->middleware('guest');
+Route::post('auth/register', [AuthController::class, 'register'])->middleware('guest');
+Route::get('auth/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout')->middleware('guest');
+Route::get('auth/forgot-password', [AuthController::class, 'forgotPasswordForm'])->name('forgot-password')->middleware('guest');
+Route::post('auth/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest');
+Route::get('auth/reset-password/{token}', [AuthController::class, 'resetPasswordForm'])->name('reset-password')->middleware('guest');
+Route::post('auth/reset-password/{token}', [AuthController::class, 'resetPassword'])->middleware('guest');
 
 # SOCIAL LOGIN AND REGISTER
 Route::get('auth/social-login/{provider}', [AuthController::class, 'socialLogin'])->name('social-login');
