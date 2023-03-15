@@ -35,7 +35,6 @@ class WebsiteController extends Controller
         ]);
         $p = CyberPanelController::createWebsite($request->package, $request->domain, $request->php, Auth::user()->email, Auth::user()->username);
         // laravel log
-        \Log::info($p);
         if ($p['createWebSiteStatus'] == 1) {
             Website::create([
                 'domain' => $request->domain . ".pplgwikrama.my.id",
@@ -51,13 +50,14 @@ class WebsiteController extends Controller
             $user->update([
                 'website_limit' => $user->website_limit - 1
             ]);
-            return redirect()->route('website.index')->with('successMessage', 'Website created successfully');
+            return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
             CyberPanelController::fetchWebsite();
         } else {
-            return redirect()->route('website.index')->with('errorMessage', 'Website created failed');
+            return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
+            \Log::info($p);
         }
 
-        return redirect()->route('website.index')->with('successMessage', 'Website created successfully');
+        return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
     }
 
     static function check()
