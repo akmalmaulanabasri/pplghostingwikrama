@@ -18,11 +18,11 @@ Route::post('auth/verification', [AuthController::class, 'sendEmailVerification'
 Route::get('auth/verify/{token}', [AuthController::class, 'verify'])->name('verify')->middleware('guest');
 Route::get('auth/register', [AuthController::class, 'registerForm'])->name('register')->middleware('guest');
 Route::post('auth/register', [AuthController::class, 'register'])->middleware('guest');
-Route::get('auth/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout')->middleware('guest');
 Route::get('auth/forgot-password', [AuthController::class, 'forgotPasswordForm'])->name('forgot-password')->middleware('guest');
 Route::post('auth/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest');
 Route::get('auth/reset-password/{token}', [AuthController::class, 'resetPasswordForm'])->name('reset-password')->middleware('guest');
 Route::post('auth/reset-password/{token}', [AuthController::class, 'resetPassword'])->middleware('guest');
+Route::get('auth/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout')->middleware('auth');
 
 # SOCIAL LOGIN AND REGISTER
 Route::get('auth/social-login/{provider}', [AuthController::class, 'socialLogin'])->name('social-login');
