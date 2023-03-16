@@ -74,6 +74,7 @@
                     <th>Storage</th>
                     <th>Paket</th>
                     <th>Status</th>
+                    <th>Tanggal dibuat</th>
                     <th>Verivied</th>
                   </tr>
                 </thead>
@@ -89,8 +90,9 @@
                       </td>
                       <td>{{ $w->package }}</td>
                       <td>
-                        <div class="badge badge-success">{{ $w->state }}</div>
+                        <div class="badge badge-success">{{ $w->state ? 'Active' : 'Inactive' }}</div>
                       </td>
+                      <td>{{ $w->created_at }}</td>
                       <td>
                         {{ $w->is_verified ? 'Sudah' : 'Belum' }}
                       </td>
