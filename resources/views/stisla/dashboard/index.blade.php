@@ -44,7 +44,7 @@
         </div>
       </div>
     @endforeach
-
+{{-- 
     @if ($user->can('Log Aktivitas'))
       <div class="col-12">
         <div class="card">
@@ -99,7 +99,7 @@
           </div>
         </div>
       </div>
-    @endif
+    @endif --}}
 
 
   </div>
