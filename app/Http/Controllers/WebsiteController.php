@@ -53,10 +53,10 @@ class WebsiteController extends Controller
                 'diskUsed' => 0,
                 'username' => Auth::user()->username,
             ]);
-            $user = User::findOrfail(Auth::user()->id);
-            $user->update([
-                'website_limit' => $user->website_limit - 1
-            ]);
+            // $user = User::findOrfail(Auth::user()->id);
+            // $user->update([
+                // 'website_limit' => $user->website_limit
+            // ]);
             CyberPanelController::fetchWebsite();
             return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
         } else {
