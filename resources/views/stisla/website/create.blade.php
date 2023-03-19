@@ -79,5 +79,10 @@
       </div>
     </div>
   </div>
+  <style>
+    #inlineFormInputGroupsub_domain_anda{
+      text-transform: lowercase;
+    }
+  </style>
 @endsection
 @endsection

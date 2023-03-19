@@ -69,7 +69,6 @@ class WebsiteController extends Controller
 
     static function check()
     {
-        // Header('Content-type: Application/json');
         $domain = $_GET['domain'];
         $find = Website::where('domain', $domain)->get()->first();
         if ($find) {
@@ -77,7 +76,6 @@ class WebsiteController extends Controller
             return response()->json($response, 200);
         } else {
             $response = ['domain' => 0];
-            // response 404
             return response()->json($response, 204);
         }
     }

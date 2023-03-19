@@ -123,8 +123,10 @@
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById('inlineFormInputGroupsub_domain_anda').style.border = '2px solid red';
+        document.getElementById('inlineFormInputGroupsub_domain_anda').value = domain.toLowerCase();;
       } else {
         document.getElementById('inlineFormInputGroupsub_domain_anda').style.border = '2px solid green';
+        document.getElementById('inlineFormInputGroupsub_domain_anda').value = domain.toLowerCase();;
       }
     };
     xhttp.open("GET", "{{ route('website.check') }}" + "?domain=" + domain + ".pplgwikrama.my.id", true);
