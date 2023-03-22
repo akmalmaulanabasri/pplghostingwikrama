@@ -27,6 +27,21 @@
       </div>
     </div>
 
+    <div class="col-12 mb-4">
+      <div class="row">
+        <div class="col-6">
+          <a href="https://akmalmaulanaa.notion.site/PPLG-HOSTING-198b506452eb43d3b6c14940e59aaf05" target="_blank" class="btn btn-info shadow btn-lg text-light w-100">
+            Lihat tutorial PPLGHOSTING disini
+          </a>
+        </div>
+        <div class="col-6">
+          <a href="https://wa.me/6289668258695" target="_blank" class="btn btn-primary shadow btn-lg text-light w-100">
+            Contact admin
+          </a>
+        </div>
+      </div>
+    </div>
+
     @foreach ($widgets ?? range(1, 8) as $item)
       <div class="col-lg-3 col-md-3 col-sm-6 col-12">
         <div class="card card-statistic-1" @if ($item->route ?? false) onclick="openTo('{{ $item->route }}')" style="cursor: pointer;" @endif>
@@ -44,7 +59,7 @@
         </div>
       </div>
     @endforeach
-{{-- 
+    {{-- 
     @if ($user->can('Log Aktivitas'))
       <div class="col-12">
         <div class="card">

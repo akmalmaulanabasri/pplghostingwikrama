@@ -121,7 +121,7 @@ class CyberPanelController extends Controller
             "email": "' . $email . '",
             "userName": "' . $username . '",
             "password": "' . $password . '",
-            "websitesLimit": 1,
+            "websitesLimit": 5,
             "selectedACL": "user"
         }';
 
