@@ -113,7 +113,7 @@ class DashboardController extends Controller
      */
     public function home()
     {
-        return view('stisla.homes.index', [
+        return view('stisla.homes.index1', [
             'title' => __('Selamat datang di ') . SettingRepository::applicationName(),
         ]);
     }
