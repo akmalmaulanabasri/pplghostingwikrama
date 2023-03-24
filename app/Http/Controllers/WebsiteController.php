@@ -11,10 +11,10 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        if (!Auth::user()->hasRole('user')) {
-            $websites = Website::all();
-        } else {
+        if (!Auth::user()->hasRole('SuperAdmin')) {
             $websites = Website::where('adminEmail', Auth::user()->email)->get();
+        } else {
+            $websites = Website::all();
         }
         return view('stisla.website.index', compact('websites'));
     }
