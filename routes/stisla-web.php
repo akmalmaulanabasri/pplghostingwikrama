@@ -14,7 +14,7 @@ Route::get('auth/login', [AuthController::class, 'loginForm'])->name('login')->m
 Route::get('auth/login2', [AuthController::class, 'loginForm'])->name('login2')->middleware('guest');
 Route::post('auth/login', [AuthController::class, 'login'])->name('login-post')->middleware('guest');
 Route::get('auth/send-email-verification', [AuthController::class, 'verificationForm'])->name('send-email-verification')->middleware('guest');
-Route::post('auth/verification', [AuthController::class, 'sendEmailVerification'])->middleware('guest');
+Route::post('auth/send-email-verification', [AuthController::class, 'sendEmailVerification'])->middleware('guest');
 Route::get('auth/verify/{token}', [AuthController::class, 'verify'])->name('verify')->middleware('guest');
 Route::get('auth/register', [AuthController::class, 'registerForm'])->name('register')->middleware('guest');
 Route::post('auth/register', [AuthController::class, 'register'])->middleware('guest');
