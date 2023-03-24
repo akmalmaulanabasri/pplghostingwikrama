@@ -45,7 +45,11 @@
                   <tr>
                     <td>Password</td>
                     <td>
-                      <code>Password anda saat mendaftarkan</code>
+                      @if (!Auth::user()->twitter_id)
+                        <code>Password anda saat mendaftarkan</code>
+                      @else
+                        <code>{{ Auth::user()->username }}</code> (Segera ubah katasandi anda)
+                      @endif
                     </td>
                   </tr>
                 </table>
@@ -59,9 +63,9 @@
           <div class="card-header d-flex justify-content-between align-item-center">
             <h4 class="text-dark"><i class="fa fa-table"></i> List Website Anda</h4>
             {{-- @if (Auth::user()->website_limit > 0) --}}
-              <h4 class="btn btn-primary text-light"><a href="{{ route('website.add') }}" class="text-light"><i class="fa fa-pencil"></i> Tambah Website</a></h4>
+            <h4 class="btn btn-primary text-light"><a href="{{ route('website.add') }}" class="text-light"><i class="fa fa-pencil"></i> Tambah Website</a></h4>
             {{-- @else --}}
-              {{-- <h4 class="btn btn-danger text-light" data-toggle="tooltip" data-placement="top" title="Limit membuat website anda sudah habis">Tidak dapat membuat website lagi</h4> --}}
+            {{-- <h4 class="btn btn-danger text-light" data-toggle="tooltip" data-placement="top" title="Limit membuat website anda sudah habis">Tidak dapat membuat website lagi</h4> --}}
             {{-- @endif --}}
           </div>
           <div class="card-body">
