@@ -450,9 +450,7 @@ class AuthController extends Controller
                     ];
                     $userModel = $this->userRepository->create($data);
                     $userModel->syncRoles(['user']);
-                    User::where('email', $data['email'])->get()->update([
-                        'username' => $data['username']
-                    ]);
+                    User::where('email', $data['email'])->first()->update(['username'=>$data['username']]);
                     $cp = CyberPanelController::register($data['name'], $data['email'], $data['password'], $data['username']);
         
                     $successMsg = __('Berhasil mendaftar dan masuk ke dalam sistem');
