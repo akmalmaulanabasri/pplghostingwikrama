@@ -346,8 +346,8 @@ class AuthController extends Controller
         } catch (Exception $e) {
             DB::rollBack();
             // if (Str::contains($e->getMessage(), 'Connection could not be established')) {
-            return back()->withInput()->with('errorMessage', __('Gagal mengirim email, server email sedang gangguan'));
             \Log::info($e->getMessage());
+            return back()->withInput()->with('errorMessage', __('Gagal mengirim email, server email sedang gangguan'));
             // }
             // return $e->getMessage();
         }
