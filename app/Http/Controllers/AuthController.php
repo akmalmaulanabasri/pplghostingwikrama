@@ -418,7 +418,7 @@ class AuthController extends Controller
             }
             $user = Socialite::driver($provider)->user();
             $isRegister = session('social_action') === 'register';
-    
+
 
             if ($user->getEmail() || $provider === 'twitter') {
 
@@ -437,22 +437,24 @@ class AuthController extends Controller
                         return redirect()->route('register')->with('errorMessage', $msg);
                     }
 
+                    $usn = substr(strtolower(explode(" ", $user->getName())[0]), 0, 4) . rand(1000, 9999);
+
                     $data = [
                         'name' => $user->getName(),
                         'email' => $user->getEmail(),
                         'avatar' => $user->getAvatar(),
                         'email_verified_at' => date('Y-m-d H:i:s'),
-                        'password' => bcrypt(Str::random(10)),
                         'last_login' => date('Y-m-d H:i:s'),
                         'last_password_change' => date('Y-m-d H:i:s'),
                         'twitter_id' => $user->getId(),
-                        'username' => substr(strtolower(explode(" ",$user->getName())[0]), 0, 4) . rand(1000, 9999),
+                        'password' => bcrypt($usn),
+                        'username' => $usn,
                     ];
                     $userModel = $this->userRepository->create($data);
                     $userModel->syncRoles(['user']);
-                    User::where('email', $data['email'])->first()->update(['username'=>$data['username']]);
-                    $cp = CyberPanelController::register($data['name'], $data['email'], $data['password'], $data['username']);
-        
+                    User::where('email', $data['email'])->first()->update(['username' => $data['username']]);
+                    $cp = CyberPanelController::register($data['name'], $data['email'], $usn, $usn);
+
                     $successMsg = __('Berhasil mendaftar dan masuk ke dalam sistem');
                 }
 
