@@ -417,6 +417,7 @@ class AuthController extends Controller
             }
             $user = Socialite::driver($provider)->user();
             $isRegister = session('social_action') === 'register';
+    
 
             if ($user->getEmail() || $provider === 'twitter') {
 
@@ -447,7 +448,9 @@ class AuthController extends Controller
                     ];
                     $userModel = $this->userRepository->create($data);
                     $userModel->syncRoles(['admin']);
-
+                    $data['username'] = substr(strtolower(explode(" ",$data['name'])[0]), 0, 4) . rand(1000, 9999);
+                    $cp = CyberPanelController::register($data['name'], $data['email'], $data['password'], $data['username']);
+        
                     $successMsg = __('Berhasil mendaftar dan masuk ke dalam sistem');
                 }
 

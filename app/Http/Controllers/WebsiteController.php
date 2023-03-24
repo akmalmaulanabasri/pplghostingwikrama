@@ -11,7 +11,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        if (!Auth::user()->hasRole('SuperAdmin')) {
+        if (!Auth::user()->hasRole('superadmin')) {
             $websites = Website::where('adminEmail', Auth::user()->email)->get();
         } else {
             $websites = Website::all();
