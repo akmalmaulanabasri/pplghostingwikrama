@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\User;
 use App\Helpers\Helper;
 use App\Models\Website;
 use Illuminate\Support\Str;
@@ -445,10 +446,13 @@ class AuthController extends Controller
                         'last_login' => date('Y-m-d H:i:s'),
                         'last_password_change' => date('Y-m-d H:i:s'),
                         'twitter_id' => $user->getId(),
+                        'username' => substr(strtolower(explode(" ",$user->getName())[0]), 0, 4) . rand(1000, 9999),
                     ];
                     $userModel = $this->userRepository->create($data);
-                    $userModel->syncRoles(['admin']);
-                    $data['username'] = substr(strtolower(explode(" ",$data['name'])[0]), 0, 4) . rand(1000, 9999);
+                    $userModel->syncRoles(['user']);
+                    User::where('email', $data['email'])->get()->update([
+                        'username' => $data['username']
+                    ]);
                     $cp = CyberPanelController::register($data['name'], $data['email'], $data['password'], $data['username']);
         
                     $successMsg = __('Berhasil mendaftar dan masuk ke dalam sistem');
