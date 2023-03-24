@@ -228,7 +228,7 @@
               <h3>Personal</h3>
               <h4><sup>Rp</sup>0<span>per Bulan</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> 512 SSD Storage</li>
+                <li><i class="bx bx-check"></i> 512MB` SSD Storage</li>
                 <li>
                   <i class="bx bx-check"></i> 5 subdomain (.pplgwikrama.my.id)
                 </li>
