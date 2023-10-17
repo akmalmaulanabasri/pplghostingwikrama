@@ -33,6 +33,9 @@
                     <th class="text-center">
                       #
                     </th>
+                    @if (Auth::user()->hasRole('superadmin'))
+                      <th>User</th>
+                    @endif
                     <th>Domain</th>
                     <th>Storage</th>
                     <th>Paket</th>
@@ -47,6 +50,11 @@
                       <td>
                         {{ $loop->iteration }}
                       </td>
+                      @if (Auth::user()->hasRole('superadmin'))
+                        <th>
+                          {{ $w->admin }}
+                        </th>
+                      @endif
                       <td><a href="https://{{ $w->domain }}" target="_blank">{{ $w->domain }}</a></td>
                       <td>
                         {{ $w->diskUsed }}
