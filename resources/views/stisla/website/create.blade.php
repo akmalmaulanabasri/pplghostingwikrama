@@ -7,7 +7,6 @@
 @section('content')
   @include('stisla.includes.breadcrumbs.breadcrumb-table')
 @section('content')
-  
   <div class="section-header">
     <h1>{{ $title }}</h1>
     <div class="section-header-breadcrumb">
@@ -43,7 +42,13 @@
                       <td>{{ $p['packageName'] }}</td>
                       <td>{{ $p['allowedDomains'] }}</td>
                       <td>{{ $p['diskSpace'] }}MB</td>
-                      <td>@if( $p['bandwidth'] == 0) Unlimited @else {{ $p['bandwidth'] }} @endif</td>
+                      <td>
+                        @if ($p['bandwidth'] == 0)
+                          Unlimited
+                        @else
+                          {{ $p['bandwidth'] }}
+                        @endif
+                      </td>
                       <td>{{ $p['emailAccounts'] }}</td>
                       <td><input type="radio" name="package" id="package" value="{{ $p['packageName'] }}" required></td>
                     </tr>
@@ -56,7 +61,7 @@
                   <label for="domain" class="form-label">Domain</label>
                   <div class="input-group">
                     <input name="domain" type="text" class="form-control" id="inlineFormInputGroupsub_domain_anda" placeholder="Subdomain pilihan kamu" required>
-                    <div class="input-group-text" id="domain">.pplgwikrama.my.id</div>
+                    <div class="input-group-text" id="domain">.sata.host</div>
                   </div>
                 </div>
                 <div class="col-6">
@@ -80,7 +85,7 @@
     </div>
   </div>
   <style>
-    #inlineFormInputGroupsub_domain_anda{
+    #inlineFormInputGroupsub_domain_anda {
       text-transform: lowercase;
     }
   </style>

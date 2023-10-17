@@ -33,7 +33,7 @@
                   <tr>
                     <td>Link panel</td>
                     <td>
-                      <a href="https://pplgwikrama.my.id:8090" class="text-decoration-none">https://pplgwikrama.my.id:8090</a>
+                      <a href="https://sata.host:8090" class="text-decoration-none">https://sata.host:8090</a>
                     </td>
                   </tr>
                   <tr>

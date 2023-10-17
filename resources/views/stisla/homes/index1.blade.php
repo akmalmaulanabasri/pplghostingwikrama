@@ -49,7 +49,6 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#pricing">Paket Hosting</a></li>
           @if (auth()->check())
             <li><a class="nav-link" href="{{ route('dashboard.index') }}">Kembali ke {{ __('Dashboard') }}</a></li>
@@ -72,8 +71,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>PPLGHOSTING</h1>
-          <h2>PPLG SMK WIKRAMA BOGOR</h2>
+          <h1>SATAHOSTER</h1>
+          <h2>SATAGALE STUDENT COMPANY</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="{{ route('register') }}" class="btn-get-started scrollto">Get Started</a>
             <a href="https://akmalmaulanaa.notion.site/PPLG-HOSTING-198b506452eb43d3b6c14940e59aaf05" target="_blank" class="btn-watch-video"><i class="bi bi-play-circle"></i><span>Tutorial</span></a>
@@ -210,7 +209,7 @@
               <ul>
                 <li><i class="bx bx-check"></i> 1GB SSD Storage</li>
                 <li>
-                  <i class="bx bx-check"></i> 1 subdomain (.pplgwikrama.my.id)
+                  <i class="bx bx-check"></i> 1 subdomain (.sata.host)
                 </li>
                 <li><i class="bx bx-check"></i> 1 database MySql</li>
                 <li><i class="bx bx-check"></i> 1 custom Email</li>
@@ -230,7 +229,7 @@
               <ul>
                 <li><i class="bx bx-check"></i> 2GB SSD Storage</li>
                 <li>
-                  <i class="bx bx-check"></i> 5 subdomain (.pplgwikrama.my.id)
+                  <i class="bx bx-check"></i> 5 subdomain (.sata.host)
                 </li>
                 <li><i class="bx bx-check"></i> 5 database MySql</li>
                 <li><i class="bx bx-check"></i> 5 custom Email</li>
@@ -247,7 +246,7 @@
               <ul>
                 <li><i class="bx bx-check"></i> 5GB SSD Storage</li>
                 <li>
-                  <i class="bx bx-check"></i> 1 subdomain (.pplgwikrama.my.id)
+                  <i class="bx bx-check"></i> 1 subdomain (.sata.host)
                 </li>
                 <li><i class="bx bx-check"></i> 5 Domain</li>
                 <li><i class="bx bx-check"></i> Unlimited Subdomain</li>
