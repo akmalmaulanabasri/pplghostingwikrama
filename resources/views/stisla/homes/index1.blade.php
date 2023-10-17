@@ -145,7 +145,7 @@
     <!-- End Services Section -->
 
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    {{-- <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Tim Kami</h2>
@@ -188,7 +188,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- End Team Section -->
 
     <!-- ======= Pricing Section ======= -->
@@ -206,9 +206,9 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <h3>Starter</h3>
-              <h4><sup>Rp</sup>0<span>per Bulan</span></h4>
+              <h4><sup>Rp</sup>7K<span>per Bulan</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> 256MB SSD Storage</li>
+                <li><i class="bx bx-check"></i> 1GB SSD Storage</li>
                 <li>
                   <i class="bx bx-check"></i> 1 subdomain (.pplgwikrama.my.id)
                 </li>
@@ -226,9 +226,9 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <h3>Personal</h3>
-              <h4><sup>Rp</sup>0<span>per Bulan</span></h4>
+              <h4><sup>Rp</sup>10L<span>per Bulan</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> 512MB` SSD Storage</li>
+                <li><i class="bx bx-check"></i> 2GB SSD Storage</li>
                 <li>
                   <i class="bx bx-check"></i> 5 subdomain (.pplgwikrama.my.id)
                 </li>
@@ -242,10 +242,10 @@
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
-              <h3>Super (Coming Soon)</h3>
-              <h4><sup>Rp</sup>20K<span>per Bulan</span></h4>
+              <h3>Super</h3>
+              <h4><sup>Rp</sup>15K<span>per Bulan</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> 2GB SSD Storage</li>
+                <li><i class="bx bx-check"></i> 5GB SSD Storage</li>
                 <li>
                   <i class="bx bx-check"></i> 1 subdomain (.pplgwikrama.my.id)
                 </li>

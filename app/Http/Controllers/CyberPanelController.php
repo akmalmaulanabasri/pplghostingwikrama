@@ -30,7 +30,7 @@ class CyberPanelController extends Controller
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => $websites,
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: ' . env('CYBERPANEL_API_KEY')
+                    'Authorization: Basic ' . env('CYBERPANEL_API_KEY')
                 ),
             )
         );
@@ -138,7 +138,7 @@ class CyberPanelController extends Controller
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => $websites,
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: ' . env('CYBERPANEL_API_KEY')
+                    'Authorization: Basic ' . env('CYBERPANEL_API_KEY')
                 ),
             )
         );
@@ -171,7 +171,7 @@ class CyberPanelController extends Controller
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => $packages,
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: ' . env('CYBERPANEL_API_KEY')
+                    'Authorization: Basic ' . env('CYBERPANEL_API_KEY')
                 ),
             )
         );
@@ -237,7 +237,7 @@ class CyberPanelController extends Controller
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => $web,
                 CURLOPT_HTTPHEADER => array(
-                    'Authorization: ' . env('CYBERPANEL_API_KEY')
+                    'Authorization: Basic ' . env('CYBERPANEL_API_KEY')
                 ),
             )
         );
@@ -254,5 +254,4 @@ class CyberPanelController extends Controller
 
         return $data;
     }
-
 }

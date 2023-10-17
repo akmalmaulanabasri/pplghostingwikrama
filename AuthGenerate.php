@@ -7,5 +7,5 @@ function generateToken($serverUserName, $serverPassword) {
 
 // $serverUserName = 'admin';
 // $serverPassword = 'akmal190605';
-$token = generateToken('admin', 'akmal190605');
+$token = generateToken('admin', 'satahosteradmin');
 echo $token;

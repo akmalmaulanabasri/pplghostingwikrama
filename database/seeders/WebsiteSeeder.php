@@ -49,6 +49,5 @@ class WebsiteSeeder extends Seeder
                 }
             }
         }
-
     }
 }

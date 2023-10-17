@@ -1,9 +1,9 @@
 [
-    { "key": "application_name", "value": "Laravel 8 Template" },
     { "key": "application_version", "value": "1.0.0" },
-    { "key": "app_description", "value": "Ini hanyalah sistem biasa" },
-    { "key": "city", "value": "Jember" },
-    { "key": "company_name", "value": "[Nama Perusahaannya]" },
+    { "key": "application_name", "value": "SATAHOST" },
+    { "key": "app_description", "value": "Hosting Provider from Student Company" },
+    { "key": "city", "value": "Bogor" },
+    { "key": "company_name", "value": "SATAHOST" },
     { "key": "country", "value": "Indonesia" },
     {
         "key": "favicon",
@@ -15,9 +15,9 @@
 
     {
         "key": "meta_author",
-        "value": "Hairul Anam, Hafiz Ardi, Ariski Setyawan"
+        "value": "Akmal Maulana"
     },
-    { "key": "meta_description", "value": "[Nama Perusahaannya]" },
+    { "key": "meta_description", "value": "Akmal Corp" },
     {
         "key": "meta_keywords",
         "value": "Sistem Informasi, Pemrograman, Github, PHP, Laravel, Stisla, Heroku, Gitlab, MySQL"
