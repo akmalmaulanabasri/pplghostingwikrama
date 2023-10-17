@@ -28,11 +28,12 @@ class WebsiteController extends Controller
 
     function store(Request $request)
     {
-        $website = $request->validate([
+        $request->validate([
             'domain' => 'required|unique:websites,domain',
             'package' => 'required',
             'php' => 'required'
         ]);
+
         $request->domain = $request->domain . ".sata.host";
         $check = Website::where('domain', $request->domain)->get()->first();
         if ($check) {
@@ -40,31 +41,29 @@ class WebsiteController extends Controller
             return redirect()->route('website.index')->with('errorMessage', 'Domain sudah dipakai, silahkan gunakan domain lainnya');
         }
 
-        $p = CyberPanelController::createWebsite($request->package, $request->domain, $request->php, Auth::user()->email, Auth::user()->username);
+        // $p = CyberPanelController::createWebsite($request->package, $request->domain, $request->php, Auth::user()->email, Auth::user()->username);
         // laravel log
-        if ($p['createWebSiteStatus'] == 1) {
-            Website::create([
-                'domain' => $request->domain,
-                'adminEmail' => Auth::user()->email,
-                'ipAddress' => 0,
-                'admin' => Auth::user()->username,
-                'package' => $request->package,
-                'state' => 1,
-                'diskUsed' => 0,
-                'username' => Auth::user()->username,
-            ]);
-            // $user = User::findOrfail(Auth::user()->id);
-            // $user->update([
-            // 'website_limit' => $user->website_limit
-            // ]);
-            CyberPanelController::fetchWebsite();
-            return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
-        } else {
-            \Log::info($p);
-            return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
-        }
+        // if ($p['createWebSiteStatus'] == 1) {
+        $name = explode(" ", $request->domain);
+        $username = substr(strtolower($name[0]), 0, 4) . rand(1000, 9999);
+        Website::create([
+            'domain' => $request->domain,
+            'adminEmail' => Auth::user()->email,
+            'ipAddress' => 0,
+            'admin' => $username,
+            'package' => $request->package,
+            'state' => "Unpaid",
+            'diskUsed' => 0,
+            'username' => $username,
+        ]);
+        //     CyberPanelController::fetchWebsite();
+        //     return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
+        // } else {
+        //     \Log::info($p);
+        //     return redirect()->route('website.index')->with('errorMessage', 'gagal dibuat');
+        // }
 
-        return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan tunggu 1-5 menit untuk pembuatan website');
+        return redirect()->route('website.index')->with('successMessage', 'Website berhasil dibuat, Silahkan lakukan pembayaran untuk mengaktifkan website');
     }
 
     static function check()

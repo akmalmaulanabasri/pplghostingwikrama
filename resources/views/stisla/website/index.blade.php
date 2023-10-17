@@ -19,54 +19,11 @@
 
   <div class="section-body">
     <div class="row">
-      @if ($websites)
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="text-dark">
-                Akses hosting panel
-              </h4>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-striped border">
-                  <tr>
-                    <td>Link panel</td>
-                    <td>
-                      <a href="https://sata.host:8090" class="text-decoration-none">https://sata.host:8090</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Username</td>
-                    <td>
-                      <code>{{ Auth::user()->username }}</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Password</td>
-                    <td>
-                      @if (!Auth::user()->twitter_id)
-                        <code>Password anda saat mendaftarkan</code>
-                      @else
-                        <code>{{ Auth::user()->username }}</code> (Segera ubah katasandi anda)
-                      @endif
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      @endif
       <div class="col-12">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-item-center">
             <h4 class="text-dark"><i class="fa fa-table"></i> List Website Anda</h4>
-            {{-- @if (Auth::user()->website_limit > 0) --}}
             <h4 class="btn btn-primary text-light"><a href="{{ route('website.add') }}" class="text-light"><i class="fa fa-pencil"></i> Tambah Website</a></h4>
-            {{-- @else --}}
-            {{-- <h4 class="btn btn-danger text-light" data-toggle="tooltip" data-placement="top" title="Limit membuat website anda sudah habis">Tidak dapat membuat website lagi</h4> --}}
-            {{-- @endif --}}
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -81,7 +38,7 @@
                     <th>Paket</th>
                     <th>Status</th>
                     <th>Tanggal dibuat</th>
-                    <th>Verivied</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,11 +53,12 @@
                       </td>
                       <td>{{ $w->package }}</td>
                       <td>
-                        <div class="badge badge-success">{{ $w->state ? 'Active' : 'Inactive' }}</div>
+                        <div class="badge badge-{{ $w->state == 'Active' ? 'success' : 'danger' }}">{{ $w->state }}</div>
                       </td>
                       <td>{{ $w->created_at }}</td>
                       <td>
-                        {{ $w->is_verified ? 'Sudah' : 'Belum' }}
+                        {{-- {{ $w->is_verified ? 'Sudah' : 'Belum' }} --}}
+                        <a class="btn btn-{{ $w->state == 'Suspended' ? 'danger disabled' : 'success' }} text-dark">{{ $w->state == 'Unpaid' ? 'Bayar' : 'Access' }}</a>
                       </td>
                     </tr>
                   @endforeach

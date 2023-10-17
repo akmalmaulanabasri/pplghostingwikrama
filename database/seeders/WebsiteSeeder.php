@@ -32,7 +32,7 @@ class WebsiteSeeder extends Seeder
                         'state' => $s['state'],
                         'diskUsed' => $s['diskUsed'],
                         'username' => $s['admin'],
-                        'is_verified' => 1
+                        'is_verified' => 0
                     ]);
                 } else {
                     Website::create([
@@ -44,7 +44,7 @@ class WebsiteSeeder extends Seeder
                         'state' => $s['state'],
                         'diskUsed' => $s['diskUsed'],
                         'username' => $s['admin'],
-                        'is_verified' => 1
+                        'is_verified' => 0
                     ]);
                 }
             }

@@ -115,8 +115,8 @@ class AuthController extends Controller
         $data = array_merge([
             'password' => bcrypt($request->password)
         ], $data);
-        $name = explode(" ", $data['name']);
-        $data['username'] = substr(strtolower($name[0]), 0, 4) . rand(1000, 9999);
+        // $name = explode(" ", $data['name']);
+        // $data['username'] = substr(strtolower($name[0]), 0, 4) . rand(1000, 9999);
         $user = $this->userRepository->create($data);
         $user->assignRole('user');
         // if ($this->settingRepository->loginMustVerified()) {
@@ -127,7 +127,7 @@ class AuthController extends Controller
         // }
         // logRegister($user);
         $this->userRepository->login($user);
-        $cp = CyberPanelController::register($data['name'], $data['email'], $request['password'], $data['username']);
+        // $cp = CyberPanelController::register($data['name'], $data['email'], $request['password'], $data['username']);
         return redirect()->route('dashboard.index')->with('successMessage', __('Berhasil mendaftar dan masuk ke dalam sistem'));
     }
 

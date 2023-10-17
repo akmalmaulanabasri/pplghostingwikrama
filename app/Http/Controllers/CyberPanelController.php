@@ -90,7 +90,7 @@ class CyberPanelController extends Controller
                         'state' => $s['state'],
                         'diskUsed' => $s['diskUsed'],
                         'username' => $s['admin'],
-                        'is_verified' => 1
+                        'is_verified' => 0
                     ]);
                 } else {
                     Website::create([
@@ -102,7 +102,7 @@ class CyberPanelController extends Controller
                         'state' => $s['state'],
                         'diskUsed' => $s['diskUsed'],
                         'username' => $s['admin'],
-                        'is_verified' => 1
+                        'is_verified' => 0
                     ]);
                 }
             }

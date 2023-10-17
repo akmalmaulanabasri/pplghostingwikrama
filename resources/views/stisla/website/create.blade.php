@@ -34,6 +34,7 @@
                   <th>Jumlah Storage</th>
                   <th>Bandwith</th>
                   <th>Akun Email</th>
+                  <th>Harga</th>
                   <th>Pilih Paket anda</th>
                 </tr>
                 @foreach ($package as $p)
@@ -50,6 +51,15 @@
                         @endif
                       </td>
                       <td>{{ $p['emailAccounts'] }}</td>
+                      <td>
+                        @if ($p['packageName'] == 'satahost_student')
+                          Rp7000
+                        @elseif ($p['packageName'] == 'satahost_competent')
+                          Rp10.000
+                        @else
+                          Rp15.000
+                        @endif
+                      </td>
                       <td><input type="radio" name="package" id="package" value="{{ $p['packageName'] }}" required></td>
                     </tr>
                   @endif
