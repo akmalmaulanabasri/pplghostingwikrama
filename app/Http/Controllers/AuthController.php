@@ -119,15 +119,14 @@ class AuthController extends Controller
         $data['username'] = substr(strtolower($name[0]), 0, 4) . rand(1000, 9999);
         $user = $this->userRepository->create($data);
         $user->assignRole('user');
-        if ($this->settingRepository->loginMustVerified()) {
-            $user->update(['email_token' => Str::random(150)]);
-            $this->emailService->verifyAccount($user);
-            logRegister($user);
-            return Helper::redirectSuccess(route('login'), __('Cek inbox email anda untuk memverifikasi akun terlebih dahulu'));
-        }
-        logRegister($user);
+        // if ($this->settingRepository->loginMustVerified()) {
+        //     $user->update(['email_token' => Str::random(150)]);
+        //     $this->emailService->verifyAccount($user);
+        //     logRegister($user);
+        //     return Helper::redirectSuccess(route('login'), __('Cek inbox email anda untuk memverifikasi akun terlebih dahulu'));
+        // }
+        // logRegister($user);
         $this->userRepository->login($user);
-
         $cp = CyberPanelController::register($data['name'], $data['email'], $request['password'], $data['username']);
         return redirect()->route('dashboard.index')->with('successMessage', __('Berhasil mendaftar dan masuk ke dalam sistem'));
     }
