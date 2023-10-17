@@ -129,7 +129,7 @@
         document.getElementById('inlineFormInputGroupsub_domain_anda').value = domain.toLowerCase();;
       }
     };
-    xhttp.open("GET", "{{ route('website.check') }}" + "?domain=" + domain + ".pplgwikrama.my.id", true);
+    xhttp.open("GET", "{{ route('website.check') }}" + "?domain=" + domain + ".sata.host", true);
     xhttp.send();
   }
 </script>
