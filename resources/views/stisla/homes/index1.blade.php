@@ -226,7 +226,7 @@
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
               <h3>Personal</h3>
-              <h4><sup>Rp</sup>10L<span>per Bulan</span></h4>
+              <h4><sup>Rp</sup>10K<span>per Bulan</span></h4>
               <ul>
                 <li><i class="bx bx-check"></i> 2GB SSD Storage</li>
                 <li>
