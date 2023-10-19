@@ -65,8 +65,8 @@
                       </td>
                       <td>{{ $w->created_at }}</td>
                       <td>
-                        {{-- {{ $w->is_verified ? 'Sudah' : 'Belum' }} --}}
-                        <a class="btn btn-{{ $w->state == 'Suspended' ? 'danger disabled' : 'success' }} text-dark">{{ $w->state == 'Unpaid' ? 'Bayar' : 'Access' }}</a>
+                        <button class="btn btn-{{ $w->state == 'Suspended' ? 'danger' : 'success' }} text-dark" data-toggle="modal"
+                          data-target="#modal-{{ $w->state != 'Suspended' ? $w->id : '' }}">{{ $w->state == 'Unpaid' ? 'Bayar' : 'Access' }}</button>
                       </td>
                     </tr>
                   @endforeach
@@ -78,6 +78,16 @@
       </div>
     </div>
   </div>
+
+  @include('stisla.website.modal')
+
+  <style>
+    .modal-backdrop {
+      z-index: 0;
+      display: none;
+    }
+  </style>
 @endsection
+
 
 @endsection
