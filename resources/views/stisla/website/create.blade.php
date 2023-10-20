@@ -27,54 +27,56 @@
           <div class="card-body">
             <form action="{{ route('website.store') }}" method="POST" class="form-group">
               @csrf
-              <table class="table table-striped border">
-                <tr>
-                  <th>Nama Paket</th>
-                  <th>Batas Domain</th>
-                  <th>Jumlah Storage</th>
-                  <th>Bandwith</th>
-                  <th>Akun Email</th>
-                  <th>Harga</th>
-                  <th>Pilih Paket anda</th>
-                </tr>
-                @foreach ($package as $p)
-                  @if (($p['packageName'] != 'Default') & ($p['packageName'] != 'admin_starter'))
-                    <tr>
-                      <td>{{ $p['packageName'] }}</td>
-                      <td>{{ $p['allowedDomains'] }}</td>
-                      <td>{{ $p['diskSpace'] }}MB</td>
-                      <td>
-                        @if ($p['bandwidth'] == 0)
-                          Unlimited
-                        @else
-                          {{ $p['bandwidth'] }}
-                        @endif
-                      </td>
-                      <td>{{ $p['emailAccounts'] }}</td>
-                      <td>
-                        @if ($p['packageName'] == 'satahost_student')
-                          Rp7000
-                        @elseif ($p['packageName'] == 'satahost_competent')
-                          Rp10.000
-                        @else
-                          Rp15.000
-                        @endif
-                      </td>
-                      <td><input type="radio" name="package" id="package" value="{{ $p['packageName'] }}" required></td>
-                    </tr>
-                  @endif
-                @endforeach
-              </table>
+              <div class="table-responsive">
+                <table class="table table-striped border">
+                  <tr>
+                    <th>Nama Paket</th>
+                    <th>Batas Domain</th>
+                    <th>Jumlah Storage</th>
+                    <th>Bandwith</th>
+                    <th>Akun Email</th>
+                    <th>Harga</th>
+                    <th>Pilih Paket anda</th>
+                  </tr>
+                  @foreach ($package as $p)
+                    @if (($p['packageName'] != 'Default') & ($p['packageName'] != 'admin_starter'))
+                      <tr>
+                        <td>{{ $p['packageName'] }}</td>
+                        <td>{{ $p['allowedDomains'] }}</td>
+                        <td>{{ $p['diskSpace'] }}MB</td>
+                        <td>
+                          @if ($p['bandwidth'] == 0)
+                            Unlimited
+                          @else
+                            {{ $p['bandwidth'] }}
+                          @endif
+                        </td>
+                        <td>{{ $p['emailAccounts'] }}</td>
+                        <td>
+                          @if ($p['packageName'] == 'satahost_student')
+                            Rp7000
+                          @elseif ($p['packageName'] == 'satahost_competent')
+                            Rp10.000
+                          @else
+                            Rp15.000
+                          @endif
+                        </td>
+                        <td><input type="radio" name="package" id="package" value="{{ $p['packageName'] }}" required></td>
+                      </tr>
+                    @endif
+                  @endforeach
+                </table>
+              </div>
 
               <div class="row mt-2">
-                <div class="col-6">
+                <div class="col-12 col-6 my-2">
                   <label for="domain" class="form-label">Domain</label>
                   <div class="input-group">
                     <input name="domain" type="text" class="form-control" id="inlineFormInputGroupsub_domain_anda" placeholder="Subdomain pilihan kamu" required>
                     <div class="input-group-text" id="domain">.sata.host</div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-6 my-2">
                   <label for="php" class="form-label">Pilih versi PHP</label>
                   <select name="php" id="php" class="form-control">
                     <option selected disabled hidden>Pilih...</option>

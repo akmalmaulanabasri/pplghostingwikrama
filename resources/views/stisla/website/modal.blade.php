@@ -66,12 +66,19 @@
             </table>
 
             <div class="alert alert-danger d-flex justify-content-center flex-column">
-              <h6 class="text-center">Silahkan membayar sebesar @if($w->package == "satahost_student") Rp7000 @elseif ($w->package == "satahost_competent") Rp10.000 @else Rp15.000 @endif untuk mengaktifkan paket anda</h6>
-              <a href="https://api.whatsapp.com/send?phone=6287735605394&text=Hallo%20kak%2C%20aku%20mau%20bayar%20hosting%0Ausername%3A%20{{ $w->username }}%0Apaket%20%3A%20{{ $w->package }}" class="btn btn-info text-dark">Whatsapp Admin</a>
+              <h6 class="text-center">Silahkan membayar sebesar @if ($w->package == 'satahost_student')
+                  Rp7000
+                @elseif ($w->package == 'satahost_competent')
+                  Rp10.000
+                @else
+                  Rp15.000
+                @endif untuk mengaktifkan paket anda</h6>
+              <a href="https://api.whatsapp.com/send?phone=6287735605394&text=Hallo%20kak%2C%20aku%20mau%20bayar%20hosting%0Ausername%3A%20{{ $w->username }}%0Apaket%20%3A%20{{ $w->package }}"
+                class="btn btn-info text-dark">Whatsapp Admin</a>
             </div>
           @endif
 
-          </div>
+        </div>
       </div>
     </div>
   </div>

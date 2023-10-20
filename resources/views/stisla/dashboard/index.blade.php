@@ -29,13 +29,13 @@
 
     <div class="col-12 mb-4">
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-md-6 my-2">
           <a href="https://akmalmaulanaa.notion.site/PPLG-HOSTING-198b506452eb43d3b6c14940e59aaf05" target="_blank"
             class="btn btn-info shadow btn-lg text-light w-100 d-flex justify-content-center align-items-center">
             <h3 class="m-0">Lihat tutorial SataHost disini</h3>
           </a>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6 my-2">
           <a href="https://wa.me/6287735605394" target="_blank" class="btn btn-primary shadow btn-lg text-light w-100 d-flex justify-content-center align-items-center">
             <h3 class="m-0">Contact admin</h3>
           </a>
